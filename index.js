@@ -1,14 +1,27 @@
 const moment = require('moment')
 
+const manipulations = [
+  'add',
+  'subtract',
+  'startOf',
+  'endOf',
+  'max',
+  'min',
+  'local',
+  'utc',
+  'utcOffset',
+  'zone'
+]
+
 const instanceHandler = {
   get: function(target, prop, receiver) {
     const clone = target.clone()
 
-    if (prop === 'add') {
+    if (manipulations.includes(prop)) {
       return new Proxy(clone[prop], {
         apply: function(target, that, args) {
           target.call(clone, ...args)
-          return clone
+          return new Proxy(clone, instanceHandler)
         }
       })
     }
@@ -22,5 +35,3 @@ module.exports = new Proxy(moment, {
     return new Proxy(target.apply(that, args), instanceHandler)
   },
 })
-
-// m = require('./index.js'); d = m();
