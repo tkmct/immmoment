@@ -1,14 +1,22 @@
 {
   "name": "immoment",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "immutablify moment",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkmct/immoment.git"
+  },
+  "keywords": [
+    "javascript",
+    "moment",
+    "immutable"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "moment": "^2.23.0"
   }
