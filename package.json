@@ -1,5 +1,5 @@
 {
-  "name": "immoment",
+  "name": "immmoment",
   "version": "0.1.0",
   "description": "immutablify moment",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tkmct/immoment.git"
+    "url": "git+https://github.com/tkmct/immmoment.git"
   },
   "keywords": [
     "javascript",
