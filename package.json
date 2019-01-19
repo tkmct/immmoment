@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "moment": "^2.23.0"
   }
 }
