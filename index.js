@@ -1,27 +1,15 @@
 const moment = require('moment')
 
-const manipulations = [
-  'add',
-  'subtract',
-  'startOf',
-  'endOf',
-  'max',
-  'min',
-  'local',
-  'utc',
-  'utcOffset',
-  'zone'
-]
-
 const instanceHandler = {
   get: function(target, prop, receiver) {
-    const clone = target.clone()
+    if (typeof target[prop] === 'function') {
+      const clone = target.clone()
 
-    if (manipulations.includes(prop)) {
       return new Proxy(clone[prop], {
         apply: function(target, that, args) {
-          target.call(clone, ...args)
-          return new Proxy(clone, instanceHandler)
+          const ret = target.call(clone, ...args)
+
+          return ret instanceof moment ? new Proxy(clone, instanceHandler) : ret
         }
       })
     }
